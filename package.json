@@ -1,0 +1,33 @@
+{
+  "name": "ahj-http-server",
+  "version": "1.0.0",
+  "description": "[![Build status](https://ci.appveyor.com/api/projects/status/4mxve6hxsybbtv5q?svg=true)](https://ci.appveyor.com/project/PollyRed/dom-homework)",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "forever server.js",
+    "watch": "forever -w server.js"
+  },
+  "engines": {
+    "node": "11.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PollyRed/ahj-http-server.git"
+  },
+  "keywords": [
+    "ahj"
+  ],
+  "author": "PollyRed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PollyRed/ahj-http-server/issues"
+  },
+  "homepage": "https://github.com/PollyRed/ahj-http-server#readme",
+  "dependencies": {
+    "@koa/cors": "^3.3.0",
+    "forever": "^4.0.3",
+    "koa": "^2.13.4",
+    "koa-body": "^5.0.0"
+  }
+}
