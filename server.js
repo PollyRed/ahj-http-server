@@ -68,7 +68,6 @@ app.use(async ctx => {
         return;
       case 'ticketById':
         const ticket = tickets.filter((element) => {return element.id === +id});
-        
         ctx.response.body = ticket;
         return;
       case 'createTicket':
@@ -77,6 +76,9 @@ app.use(async ctx => {
         tickets.push(newTicket);
         ctx.response.body = newTicket;
         return;
+	  case 'deleteTicket':
+		tickets = tickets.filter((element) => {return element.id !== +id});
+        ctx.response.body = 'deleted';
       default:
         ctx.response.status = 404;
         return;
