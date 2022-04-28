@@ -55,7 +55,7 @@ class TicketFull {
 let tickets = [new TicketFull(1, 'ticket', false)];
 
 app.use(async ctx => {
-  const { method, id, s } = ctx.request.query;
+  const { method, id } = ctx.request.query;
 
   switch (method) {
       case 'allTickets':
@@ -82,7 +82,7 @@ app.use(async ctx => {
 	  case 'changeStatus':
 		const ticket = tickets.filter((element) => {return element.id === +id});
 		const i = tickets.indexOf(ticket[0]);
-		tickets[i].status = s;
+		tickets[i].status = !tickets[i].status;
         ctx.response.body = ticket;
       default:
         ctx.response.status = 404;
