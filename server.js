@@ -79,13 +79,6 @@ app.use(async ctx => {
 	  case 'deleteTicket':
 		tickets = tickets.filter((element) => {return element.id !== +id});
         ctx.response.body = 'deleted';
-		return;
-	  case 'changeStatus':
-		const ticket = tickets.filter((element) => {return element.id === +id});
-		const i = tickets.indexOf(ticket[0]);
-		tickets[i].status = !tickets[i].status;
-        ctx.response.body = ticket;
-		return;
       default:
         ctx.response.status = 404;
         return;
