@@ -87,12 +87,12 @@ app.use(async ctx => {
       ctx.response.body = tickets[i];
 	    return;
 	  case 'changeTicket':
-	    t = tickets.filter((element) => {return element.id === +id});
-		  i = tickets.indexOf(t[0]);
-		  requestBody = ctx.request.body;
-		  tickets[i].name = requestBody.name;
-		  tickets[i].description = requestBody.description;
-       ctx.response.body = tickets[i];
+	    const changingTicket = tickets.filter((element) => {return element.id === +id});
+		  const changingIndex = tickets.indexOf(changingTicket[0]);
+		  const changingRequestBody = ctx.request.body;
+		  tickets[changingIndex].name = changingRequestBody.name;
+		  tickets[changingIndex].description = changingRequestBody.description;
+       ctx.response.body = tickets[changingIndex];
 	    return;
     default:
         ctx.response.status = 404;
