@@ -82,19 +82,19 @@ app.use(async ctx => {
         return;
 	  case 'changeStatus':
 	    const t = tickets.filter((element) => {return element.id === +id});
-		const i = tickets.indexOf(t[0]);
-		tickets[i].status = !tickets[i].status;
-        ctx.response.body = tickets[i];
+		  const i = tickets.indexOf(t[0]);
+		  tickets[i].status = !tickets[i].status;
+      ctx.response.body = tickets[i];
 	    return;
 	  case 'changeTicket':
-	    const t = tickets.filter((element) => {return element.id === +id});
-		const i = tickets.indexOf(t[0]);
-		const requestBody = ctx.request.body;
-		tickets[i].name = requestBody.name;
-		tickets[i].description = requestBody.description;
-        ctx.response.body = tickets[i];
+	    t = tickets.filter((element) => {return element.id === +id});
+		  i = tickets.indexOf(t[0]);
+		  requestBody = ctx.request.body;
+		  tickets[i].name = requestBody.name;
+		  tickets[i].description = requestBody.description;
+       ctx.response.body = tickets[i];
 	    return;
-      default:
+    default:
         ctx.response.status = 404;
         return;
   }
